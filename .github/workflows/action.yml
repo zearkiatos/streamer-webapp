@@ -1,4 +1,4 @@
-name: Node and React CI
+name: Node.js CI
 
 on: [push]
 
