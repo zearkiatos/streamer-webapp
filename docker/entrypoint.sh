@@ -1,5 +1,3 @@
-echo "$ENVIRONMENT"
-
 if [ $(echo "$ENVIRONMENT")=="test" ]
 then
     npm run dev
