@@ -17,6 +17,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: npm install
+    - name: Public URL
+      run: export PUBLIC_URL=https://zearkiatos.github.io/streams-client-webapp/
     - name: Build
       run: npm run build
     - name: Upload production-ready build files
