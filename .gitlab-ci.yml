@@ -31,6 +31,7 @@ build-app:
     - echo "Deploy a review app 🛠"
     - touch .env
     - echo "ENVIRONMENT=${ENVIRONMENT}" > .env
+    - echo "PUBLIC_URL=${PUBLIC_URL}" >> .env
     - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=${REACT_APP_GOOGLE_OAUTH_CLIENT_ID}" >> .env
     - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=${REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}" >> .env
     - npm run build
