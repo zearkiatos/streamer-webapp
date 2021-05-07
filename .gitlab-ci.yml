@@ -24,13 +24,15 @@ build-app:
   stage: build
   variables:
     ENVIRONMENT: 'staging'
-    PUBLIC_URL: ''
+    PUBLIC_URL: 'https://caprilespe.gitlab.io/streams-client-webapp/'
   dependencies:
     - install-dependencies
   script:
     - echo "Deploy a review app 🛠"
     - touch .env
     - echo "ENVIRONMENT=${ENVIRONMENT}" > .env
+    - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=${REACT_APP_GOOGLE_OAUTH_CLIENT_ID}" >> .env
+    - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=${REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}" >> .env
     - npm run build
   artifacts:
     expire_in: 1hr
