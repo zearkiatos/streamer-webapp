@@ -25,6 +25,7 @@ jobs:
         echo "ENVIRONMENT=${ENVIRONMENT}" > .env &&
         echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=${REACT_APP_GOOGLE_OAUTH_CLIENT_ID}" >> .env &&
         echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=${REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}" >> .env
+        cat .env
     - name: Build
       run: npm run build
     - name: Upload production-ready build files
