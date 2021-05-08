@@ -27,7 +27,6 @@ jobs:
         echo "ENVIRONMENT=${ENVIRONMENT}" > .env &&
         echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=${REACT_APP_GOOGLE_OAUTH_CLIENT_ID}" >> .env &&
         echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=${REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}" >> .env
-        cat .env
       env:
         ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
         REACT_APP_GOOGLE_OAUTH_CLIENT_ID: ${{ secrets.REACT_APP_GOOGLE_OAUTH_CLIENT_ID }}
