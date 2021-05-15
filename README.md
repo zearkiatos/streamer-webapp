@@ -1,6 +1,22 @@
+## Project link
+
+Netlify: [https://youthful-davinci-3e4ba4.netlify.app/](https://youthful-davinci-3e4ba4.netlify.app/)
+
+Vercel: [https://streams-client-webapp-m9v2o72mv-zearkiatos.vercel.app/](https://streams-client-webapp-m9v2o72mv-zearkiatos.vercel.app/)
+
+Github: [https://zearkiatos.github.io/streams-client-webapp/](https://zearkiatos.github.io/streams-client-webapp/)
+
+Gitlab🦊: [https://caprilespe.gitlab.io/streams-client-webapp/](https://caprilespe.gitlab.io/streams-client-webapp/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# Notes
+
+1. If you want debugging redux store into the application for persist the state you need to pass a param in the URL, for example:
+
+http://localhost:3000?debug_session={name of logged session}
 
 ## Available Scripts
 
