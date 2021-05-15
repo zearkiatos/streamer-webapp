@@ -5,6 +5,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: 
+      name: staging
     strategy:
       matrix:
         node-version: [15.x]
@@ -19,6 +21,16 @@ jobs:
       run: npm install
     - name: Public URL
       run: export PUBLIC_URL=https://zearkiatos.github.io/streams-client-webapp/
+    - name: Create .env
+      run: |
+        touch .env &&
+        echo "ENVIRONMENT=${ENVIRONMENT}" > .env &&
+        echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=${REACT_APP_GOOGLE_OAUTH_CLIENT_ID}" >> .env &&
+        echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=${REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}" >> .env
+      env:
+        ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+        REACT_APP_GOOGLE_OAUTH_CLIENT_ID: ${{ secrets.REACT_APP_GOOGLE_OAUTH_CLIENT_ID }}
+        REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET: ${{ secrets.REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET }}
     - name: Build
       run: npm run build
     - name: Upload production-ready build files
