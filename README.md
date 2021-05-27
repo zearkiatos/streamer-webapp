@@ -2,7 +2,7 @@
 
 Netlify: [https://youthful-davinci-3e4ba4.netlify.app/](https://youthful-davinci-3e4ba4.netlify.app/)
 
-Vercel: [https://streams-client-webapp-m9v2o72mv-zearkiatos.vercel.app/](https://streams-client-webapp-m9v2o72mv-zearkiatos.vercel.app/)
+Vercel: [https://https://streams-client-webapp.vercel.app/](https://streams-client-webapp.vercel.app/)
 
 Github: [https://zearkiatos.github.io/streams-client-webapp/](https://zearkiatos.github.io/streams-client-webapp/)
 
