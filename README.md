@@ -84,3 +84,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Sample Code!!
+### Array-Based approach
+
+const streamReducer = (state = [], action) => {
+    switch(action.type) {
+        case EDIT_STREAM:
+            return state.map(stream => {
+                if(stream.id === action.payload.id) {
+                    return action.payload;
+                }
+                else {
+                    return stream;
+                }
+            });
+        default:
+            return state;
+    }
+} 
