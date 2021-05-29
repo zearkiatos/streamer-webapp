@@ -2,7 +2,7 @@ import { omit, mapKeys } from 'lodash';
 import TYPES from '../types';
 
 const streamReducer = (state = {}, action) => {
-    switch (action.types) {
+    switch (action.type) {
         case TYPES.FETCH_STREAMS:
             return { ...state, ...mapKeys(action.payload, 'id') };
         case TYPES.FETCH_STREAM:
