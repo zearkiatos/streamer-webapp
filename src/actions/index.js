@@ -18,6 +18,8 @@ export const createStream = formValues => async (dispatch, getState) => {
   const response = await streams.post('/streams', {...formValues, userId });
 
   dispatch({ type: TYPES.CREATE_STREAM, payload: response.data });
+  //To Do some programatic navigation
+  // get the user back to root route
 };
 
 export const fetchStreams = () => async dispatch => {
