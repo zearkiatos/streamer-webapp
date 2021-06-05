@@ -22,6 +22,9 @@ install-dependencies:
 
 build-app:
   stage: build
+  cache:
+    paths:
+      - node_modules/
   variables:
     ENVIRONMENT: 'staging'
     PUBLIC_URL: 'https://caprilespe.gitlab.io/streams-client-webapp/'
@@ -39,7 +42,7 @@ build-app:
   artifacts:
     expire_in: 1hr
     paths:
-      - build/
+      - build
 
 pages:
   stage: deploy
@@ -47,6 +50,8 @@ pages:
     - build-app
   script:
     - echo "Deploy a review app 🚀"
+    - rm -rf public
+    - cp build/index.html build/404.html
     - mv build public
   artifacts:
     paths:
