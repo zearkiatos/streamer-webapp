@@ -38,6 +38,7 @@ build-app:
     - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=${REACT_APP_GOOGLE_OAUTH_CLIENT_ID}" >> .env
     - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=${REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}" >> .env
     - echo "REACT_APP_STREAMS_API_BASE_URL=${REACT_APP_STREAMS_API_BASE_URL}" >> .env
+    - env
     - npm run build
   artifacts:
     expire_in: 1hr
@@ -49,6 +50,7 @@ pages:
   dependencies:
     - build-app
   script:
+    - env
     - echo "Deploy a review app 🚀"
     - rm -rf public
     - cp build/index.html build/404.html
