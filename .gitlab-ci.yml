@@ -22,6 +22,7 @@ install-dependencies:
 
 build-app:
   stage: build
+  environment: staging
   cache:
     paths:
       - node_modules/
@@ -30,23 +31,21 @@ build-app:
   script:
     - echo "Deploy a review app 🛠"
     - touch .env
-    - echo $REACT_APP_GOOGLE_OAUTH_CLIENT_ID
-    - echo "ENVIRONMENT=$ENVIRONMENT" > .env
-    - echo "PUBLIC_URL=$PUBLIC_URL" >> .env
-    - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=$REACT_APP_GOOGLE_OAUTH_CLIENT_ID" >> .env
-    - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=$REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET" >> .env
-    - echo "REACT_APP_STREAMS_API_BASE_URL=$REACT_APP_STREAMS_API_BASE_URL" >> .env
+    - echo "ENVIRONMENT=${ENVIRONMENT}" > .env
+    - echo "PUBLIC_URL=${PUBLIC_URL}" >> .env
+    - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=${REACT_APP_GOOGLE_OAUTH_CLIENT_ID}" >> .env
+    - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=${REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}" >> .env
+    - echo "REACT_APP_STREAMS_API_BASE_URL=${REACT_APP_STREAMS_API_BASE_URL}" >> .env
     - cat .env
     - npm run build
   artifacts:
     expire_in: 1hr
     paths:
       - build
-  environment:
-    name: staging
 
 pages:
   stage: deploy
+  environment: staging
   dependencies:
     - build-app
   script:
@@ -57,7 +56,5 @@ pages:
   artifacts:
     paths:
       - public
-  environment:
-    name: staging
   only:
     - branches
