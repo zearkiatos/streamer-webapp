@@ -28,19 +28,17 @@ build-app:
   variables:
     ENVIRONMENT: 'staging'
     PUBLIC_URL: 'https://caprilespe.gitlab.io/streams-client-webapp/'
-    REACT_APP_GOOGLE_OAUTH_CLIENT_ID: $REACT_APP_GOOGLE_OAUTH_CLIENT_ID
-    REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET: $REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}
-    REACT_APP_STREAMS_API_BASE_URL: $REACT_APP_STREAMS_API_BASE_URL}
   dependencies:
     - install-dependencies
   script:
     - echo "Deploy a review app 🛠"
     - touch .env
-    - echo "ENVIRONMENT=${ENVIRONMENT}" > .env
-    - echo "PUBLIC_URL=${PUBLIC_URL}" >> .env
-    - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=${REACT_APP_GOOGLE_OAUTH_CLIENT_ID}" >> .env
-    - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=${REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}" >> .env
-    - echo "REACT_APP_STREAMS_API_BASE_URL=${REACT_APP_STREAMS_API_BASE_URL}" >> .env
+    - echo $REACT_APP_GOOGLE_OAUTH_CLIENT_ID
+    - echo "ENVIRONMENT=$ENVIRONMENT" > .env
+    - echo "PUBLIC_URL=$PUBLIC_URL" >> .env
+    - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=$REACT_APP_GOOGLE_OAUTH_CLIENT_ID" >> .env
+    - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=$REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET" >> .env
+    - echo "REACT_APP_STREAMS_API_BASE_URL=$REACT_APP_STREAMS_API_BASE_URL" >> .env
     - env
     - npm run build
   artifacts:
