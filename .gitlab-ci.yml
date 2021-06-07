@@ -44,6 +44,8 @@ build-app:
     expire_in: 1hr
     paths:
       - build
+  environment:
+    name: staging
 
 pages:
   stage: deploy
