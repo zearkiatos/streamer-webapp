@@ -25,9 +25,6 @@ build-app:
   cache:
     paths:
       - node_modules/
-  variables:
-    ENVIRONMENT: 'staging'
-    PUBLIC_URL: 'https://caprilespe.gitlab.io/streams-client-webapp/'
   dependencies:
     - install-dependencies
   script:
