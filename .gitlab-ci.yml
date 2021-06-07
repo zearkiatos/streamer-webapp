@@ -23,12 +23,6 @@ install-dependencies:
 build-app:
   stage: build
   environment: staging
-  variables:
-    ENVIRONMENT: $ENVIRONMENT
-    PUBLIC_URL: $PUBLIC_URL
-    REACT_APP_GOOGLE_OAUTH_CLIENT_ID: $REACT_APP_GOOGLE_OAUTH_CLIENT_ID
-    REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET: $REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET
-    REACT_APP_STREAMS_API_BASE_URL: $REACT_APP_STREAMS_API_BASE_URL
   cache:
     paths:
       - node_modules/
