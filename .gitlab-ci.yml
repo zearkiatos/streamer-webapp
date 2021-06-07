@@ -36,7 +36,6 @@ build-app:
     - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_ID=${REACT_APP_GOOGLE_OAUTH_CLIENT_ID}" >> .env
     - echo "REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET=${REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}" >> .env
     - echo "REACT_APP_STREAMS_API_BASE_URL=${REACT_APP_STREAMS_API_BASE_URL}" >> .env
-    - cat .env
     - npm run build
   artifacts:
     expire_in: 1hr
