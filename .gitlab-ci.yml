@@ -28,6 +28,9 @@ build-app:
   variables:
     ENVIRONMENT: 'staging'
     PUBLIC_URL: 'https://caprilespe.gitlab.io/streams-client-webapp/'
+    REACT_APP_GOOGLE_OAUTH_CLIENT_ID: ${REACT_APP_GOOGLE_OAUTH_CLIENT_ID}
+    REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET: ${REACT_APP_GOOGLE_OAUTH_CLIENT_SECRET}
+    REACT_APP_STREAMS_API_BASE_URL: ${REACT_APP_STREAMS_API_BASE_URL}
   dependencies:
     - install-dependencies
   script:
@@ -52,7 +55,6 @@ pages:
   dependencies:
     - build-app
   script:
-    - env
     - echo "Deploy a review app 🚀"
     - rm -rf public
     - cp build/index.html build/404.html
