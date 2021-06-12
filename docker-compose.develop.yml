@@ -2,11 +2,23 @@
 version: "3.9"
 
 services:
+  api:
+    build:
+      context: ../streams-api
+      dockerfile: Dockerfile
+    container_name: streams-api
+    volumes:
+      - "../streams-api/.:/app"
+    env_file:
+      - ../streams-api/.env
+    ports:
+      - "0.0.0.0:5001:5000"
+    tty: true
   app:
     build:
       context: .
       dockerfile: develop.Dockerfile
-    container_name: streams-client
+    container_name: streams-webapp
     volumes: 
       - ".:/app"
     env_file:
@@ -14,3 +26,7 @@ services:
     ports:
       - "3001:3000"
     tty: true
+    depends_on: 
+      - api
+    links: 
+      - api

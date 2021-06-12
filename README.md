@@ -2,7 +2,7 @@
 
 Netlify: [https://youthful-davinci-3e4ba4.netlify.app/](https://youthful-davinci-3e4ba4.netlify.app/)
 
-Vercel: [https://streams-client-webapp-m9v2o72mv-zearkiatos.vercel.app/](https://streams-client-webapp-m9v2o72mv-zearkiatos.vercel.app/)
+Vercel: [https://https://streams-client-webapp.vercel.app/](https://streams-client-webapp.vercel.app/)
 
 Github: [https://zearkiatos.github.io/streams-client-webapp/](https://zearkiatos.github.io/streams-client-webapp/)
 
@@ -84,3 +84,46 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Sample Code!!
+### Array-Based approach
+
+const streamReducer = (state = [], action) => {
+    switch(action.type) {
+        case EDIT_STREAM:
+            return state.map(stream => {
+                if(stream.id === action.payload.id) {
+                    return action.payload;
+                }
+                else {
+                    return stream;
+                }
+            });
+        default:
+            return state;
+    }
+}
+
+### Object-Based approach
+
+const streamReducer = (state = {}, action) => {
+    switch(action.type) {
+        case EDIT_STREAM:
+            const newState = { ...state };
+            newState[action.payload.id] = action.payload;
+            return newState;
+        default:
+            return state;
+    }
+}
+
+### Object-Based the best approach
+
+const streamReducer = (state = {}, action) => {
+    switch(action.type) {
+        case EDIT_STREAM:
+            return {...state, [action.payload.id]: action.payload};
+        default:
+            return state;
+    }
+}
