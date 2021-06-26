@@ -25,6 +25,7 @@ services:
       - ../streams-rtmp-server/.env
     ports:
       - "0.0.0.0:9000:8000"
+      - "0.0.0.0:1935:1935"
     tty: true
   app:
     build:
