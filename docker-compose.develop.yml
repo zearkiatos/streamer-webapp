@@ -14,6 +14,18 @@ services:
     ports:
       - "0.0.0.0:5001:5000"
     tty: true
+  server:
+    build:
+      context: ../streams-rtmp-server
+      dockerfile: Dockerfile
+    container_name: streams-rtmp-server
+    volumes:
+      - "../streams-rtmp-server/.:/app"
+    env_file:
+      - ../streams-rtmp-server/.env
+    ports:
+      - "0.0.0.0:9000:8000"
+    tty: true
   app:
     build:
       context: .
@@ -28,5 +40,7 @@ services:
     tty: true
     depends_on: 
       - api
+      - server
     links: 
       - api
+      - server
