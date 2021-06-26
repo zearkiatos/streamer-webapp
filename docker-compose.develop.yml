@@ -1,0 +1,47 @@
+
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ../streams-api
+      dockerfile: Dockerfile
+    container_name: streams-api
+    volumes:
+      - "../streams-api/.:/app"
+    env_file:
+      - ../streams-api/.env
+    ports:
+      - "0.0.0.0:5001:5000"
+    tty: true
+  server:
+    build:
+      context: ../streams-rtmp-server
+      dockerfile: Dockerfile
+    container_name: streams-rtmp-server
+    volumes:
+      - "../streams-rtmp-server/.:/app"
+    env_file:
+      - ../streams-rtmp-server/.env
+    ports:
+      - "0.0.0.0:9000:8000"
+      - "0.0.0.0:1935:1935"
+    tty: true
+  app:
+    build:
+      context: .
+      dockerfile: develop.Dockerfile
+    container_name: streams-webapp
+    volumes: 
+      - ".:/app"
+    env_file:
+      - .env
+    ports:
+      - "3001:3000"
+    tty: true
+    depends_on: 
+      - api
+      - server
+    links: 
+      - api
+      - server
